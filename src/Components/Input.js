@@ -1,5 +1,5 @@
-import { useContext, useEffect, useState } from "react";
-import CardDispatchContext from "../Context/CardDispatchContext";
+import { useEffect, useState } from "react";
+import useDispatch from "../hooks/cardsDispatch";
 
 const init ={
   id: "",
@@ -10,7 +10,7 @@ const init ={
 function AddCard({editCard}){
   const [input,setInput] = useState(init);
 
-  const dispatch = useContext(CardDispatchContext);
+  const dispatch = useDispatch();
 
   
   function handleClick(e){

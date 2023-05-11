@@ -1,8 +1,7 @@
-import { useContext } from "react";
-import CardDispatchContext from "../Context/CardDispatchContext";
+import useDispatch from "../hooks/cardsDispatch";
 
 function Card({heading,content,id,setEdit}){
-  const dispatch = useContext(CardDispatchContext);
+  const dispatch = useDispatch();
   return(
     <div className="card">
       <button onClick={()=>dispatch({type:"DELETE",payload:id})}>DEL</button>
