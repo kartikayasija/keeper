@@ -1,6 +1,6 @@
 import Card from './Card';
 
-function CardList({card,deleteCard,setEdit}){
+function CardList({card,dispatch,setEdit}){
   return(
     <div className='card-list'>
       {card.map(card=>
@@ -9,7 +9,7 @@ function CardList({card,deleteCard,setEdit}){
           id={card.id}
           heading={card.heading} 
           content={card.content} 
-          deleteCard={deleteCard}
+          dispatch={dispatch}
           setEdit={setEdit}
         />
       )}

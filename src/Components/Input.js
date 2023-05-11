@@ -6,14 +6,14 @@ const init ={
   content: "",
 }
 
-function AddCard({addCard,editCard,updateCard}){
+function AddCard({dispatch,editCard}){
   const [input,setInput] = useState(init);
 
   
   function handleClick(e){
     e.preventDefault();
-    if(editCard) updateCard(input)
-    else addCard(input); 
+    if(editCard) dispatch({type:"UPDATE",payload:input})
+    else dispatch({type:"ADD",payload:input}); 
     setInput(init);
   }
   function handleChange(e){
