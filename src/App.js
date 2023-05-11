@@ -2,7 +2,10 @@ import './App.css';
 import CardList from './Components/CardList';
 import Heading from './Components/Heading';
 import Input from './Components/Input';
-import { useReducer, useState } from 'react';
+import { useContext, useReducer, useState } from 'react';
+import ThemeContext from './Context/ThemeContext';
+import CardsContext from './Context/CardsContext';
+import CardDispatchContext from './Context/CardDispatchContext';
 
 function App() {
 
@@ -24,6 +27,7 @@ function App() {
     }
   }
 
+
   const[cards,dispatch] = useReducer(cardReducer,[]);
   const [editCard,setEditCard]=useState(null);
 
@@ -31,13 +35,19 @@ function App() {
     setEditCard(cards.find(card=>card.id===id));
   }
 
+  const theme = useContext(ThemeContext);
+
 
   return (
-    <div className="App">
-      <Heading></Heading> 
-      <Input dispatch={dispatch} editCard={editCard}></Input>
-      <CardList dispatch={dispatch} card={cards} setEdit={setEdit}></CardList>
-    </div>
+    <CardsContext.Provider value={cards}>
+      <CardDispatchContext.Provider value={dispatch}>
+        <div className={`App ${theme}`} >
+          <Heading></Heading> 
+          <Input editCard={editCard}></Input>
+          <CardList setEdit={setEdit}></CardList>
+        </div>
+      </CardDispatchContext.Provider>
+    </CardsContext.Provider>
   );
 }
 

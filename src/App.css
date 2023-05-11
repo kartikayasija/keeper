@@ -1,15 +1,19 @@
-body{
+.App{
   background-color: rgba(196, 195, 255, 0.598);
+  height: 100vh;
 }
 .heading{
   text-align: center;
+}
+h1{
+  margin: 0;
+  padding: 0;
 }
 
 .card{
   width: 200px;
   border: 1px solid grey;
   margin: 40px 20px;
-
   text-align: center;
   padding: 10px;
   background-color: rgba(0, 0, 255, 0.621);
@@ -52,4 +56,8 @@ body{
 }
 .inp button:hover{
   opacity: 0.3;
+}
+.dark{
+  /* background-color: rgb(31, 3, 53);
+  color: rgb(230, 202, 255); */
 }

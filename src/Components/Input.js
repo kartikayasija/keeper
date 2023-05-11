@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import CardDispatchContext from "../Context/CardDispatchContext";
 
 const init ={
   id: "",
@@ -6,8 +7,10 @@ const init ={
   content: "",
 }
 
-function AddCard({dispatch,editCard}){
+function AddCard({editCard}){
   const [input,setInput] = useState(init);
+
+  const dispatch = useContext(CardDispatchContext);
 
   
   function handleClick(e){

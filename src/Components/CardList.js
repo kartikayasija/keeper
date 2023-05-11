@@ -1,6 +1,9 @@
+import { useContext } from 'react';
 import Card from './Card';
+import CardsContext from '../Context/CardsContext';
 
-function CardList({card,dispatch,setEdit}){
+function CardList({setEdit}){
+  const card = useContext(CardsContext);
   return(
     <div className='card-list'>
       {card.map(card=>
@@ -9,7 +12,6 @@ function CardList({card,dispatch,setEdit}){
           id={card.id}
           heading={card.heading} 
           content={card.content} 
-          dispatch={dispatch}
           setEdit={setEdit}
         />
       )}
